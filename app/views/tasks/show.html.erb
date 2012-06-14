@@ -1,0 +1,25 @@
+<div class="row-fluid">
+  <div class="span4">
+    <div class="page-header">
+      <h1>Task #<%= @task.id %></h1>
+    </div>
+    <%= form_for [@site, @task], :html => {:class => "full"} do |f| %>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+
+      <%= f.label :body %>
+      <%= f.text_area :body %>
+
+      <%= select_tag "task[status_id]", options_for_select(Status.all.collect{ |s| [s.status, s.id] }) %>
+
+      <div class="form-actions">
+        <%= f.submit "Update Task", :class => "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+  <div class="span8">
+    <div class="page-header">
+      <h1>Comments</h1>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="row-fluid">
+  <div class="span4">
+    <h1>Sites</h1>
+  </div>
+  <div class="span4">
+  </div>
+  <div class="span4">
+    <%= form_for @site, :html => {:class => "form-inline"} do |f| %>
+      <%= f.text_field :title, "placeholder" => "New Site Title" %>
+
+      <%= f.submit "Create Site", :class => "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+<table class="table table-striped table-condensed sites">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Tasks</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sites.each do |s| %>
+      <tr>
+        <td><%= s.id %></td>
+        <td><%= link_to s.title, site_tasks_path(s) %></td>
+        <td><%= s.tasks.size %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

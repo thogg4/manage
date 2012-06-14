@@ -1,0 +1,7 @@
+<% tasks.each do |t| %>
+  <tr style="background-color: <%= t.row_color %>">
+    <td><%= t.id %></td>
+    <td><%= link_to t.title, site_task_path(@site, t) %></td>
+    <td><%= t.status.status %></td>
+  </tr>
+<% end %>

@@ -1,0 +1,9 @@
+body {
+  padding-top: 50px;
+}
+
+form.full {
+  input[type=text], textarea, select {
+    width: 97%;
+  }
+}
